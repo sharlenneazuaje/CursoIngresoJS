@@ -1,6 +1,26 @@
 function mostrar()
 {
-	//Genero el número RANDOM entre 1 y 10 
-	alert("ok");
+	var nota;
+	var mensaje;
 
-}//FIN DE LA FUNCIÓN
+	nota = Math.floor(Math.random() * 10) + 1;
+
+	if(nota > 8)
+	{
+		mensaje = "EXCELENTE";
+	}
+	else
+	{
+		if(nota > 4)
+		{
+			mensaje = "APROBÓ";
+		}
+		else
+		{
+			mensaje = "Vamos, la próxima se puede!";
+		}
+	}
+
+	alert("La nota que obtuvo: "+nota+". "+mensaje+".");
+
+}
