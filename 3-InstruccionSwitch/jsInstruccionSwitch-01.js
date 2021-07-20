@@ -19,8 +19,6 @@ function mostrar()
 		case "Diciembre":
 			mensaje = "Felices fiestas!"
 			break;
-		default:
-			mensaje = "";
 	}
 	alert(mensaje);
 
