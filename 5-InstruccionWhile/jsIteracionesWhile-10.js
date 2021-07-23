@@ -12,18 +12,73 @@ hasta que el usuario quiera, mostrar:
 9-Diferencia entre positivos y negativos, (positvos-negativos). */
 function mostrar()
 {
-	//declarar contadores y variables 
+	
 	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos=0;
+	var numero;
+	var sumaNegativos;
+	var sumaPositivos;
+	var cantidadPositivos;
+	var cantidadNegativos;
+	var cantidadCeros;
+	var cantidadPares;
+	var promedioPositivos;
+	var promedioNegativos;
+	var diferenciaPositivosNegativos; 
+	var mensaje;
 
-	respuesta="si";
+	respuesta = "si";
+	sumaNegativos = 0;
+	sumaPositivos = 0;
+	cantidadPositivos = 0;
+	cantidadNegativos = 0;
+	cantidadCeros = 0;
+	cantidadPares = 0;
+	
 
-	while(respuesta=="si")
+	while(respuesta != "no")
 	{
-		
-		respuesta=prompt("desea continuar?");
-	}//fin del while
+		numero = prompt("Ingrese un número");
+		numero = parseInt(numero);
 
-	document.write("la suma de negativos es :"+sumaNegativos);
-}//FIN DE LA FUNCIÓN
+		if(numero % 2 == 0)
+		{
+			cantidadPares = cantidadPares + 1;
+		}
+
+		if(numero == 0)
+		{
+			cantidadCeros = cantidadCeros + 1;
+		}
+
+		if(numero > -1)
+		{
+			sumaPositivos = sumaPositivos + numero;
+			cantidadPositivos = cantidadPositivos + 1;
+			
+		}
+		else
+		{
+			sumaNegativos = sumaNegativos + numero;
+			cantidadNegativos = cantidadNegativos + 1;
+		}
+
+		respuesta=prompt("Desea continuar? Responda si o no");
+	}
+
+	promedioPositivos = sumaPositivos / cantidadPositivos;
+	promedioNegativos = sumaNegativos / cantidadNegativos;
+	diferenciaPositivosNegativos = sumaPositivos + sumaNegativos;
+
+	mensaje = "La suma de los números negativos es "+sumaNegativos+"<br>";
+	mensaje = mensaje + "La suma de los números positivos es "+sumaPositivos+"<br>";
+	mensaje = mensaje + "La cantidad de números positivos es "+cantidadPositivos+"<br>";
+	mensaje = mensaje + "La cantidad de números negativos es "+cantidadNegativos+"<br>";
+	mensaje = mensaje + "La cantidad de ceros es "+cantidadCeros+"<br>";
+	mensaje = mensaje + "La cantidad de números pares es "+cantidadPares+"<br>";
+	mensaje = mensaje + "El promedio de los positivos es "+promedioPositivos+"<br>";
+	mensaje = mensaje + "El promedio de los negativos es "+promedioNegativos+"<br>";
+	mensaje = mensaje + "La diferencia entre positivos y negativos es "+diferenciaPositivosNegativos+"<br>";
+
+	document.write(mensaje);
+	
+}
